@@ -420,6 +420,7 @@
 #slider .slider_inner {
     width: 100%;
     position: relative;
+    overflow : hidden;
 
 }
 
