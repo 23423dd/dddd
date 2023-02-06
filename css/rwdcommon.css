@@ -1,0 +1,79 @@
+ @media screen and (max-width:1200px) {
+     .container {
+         max-width: 960px;
+     }
+ }
+
+ @media screen and (max-width: 991.98px) {
+     .container {
+         max-width: 720px;
+     }
+
+
+     #header .container .hamburger-group {
+         display: block;
+     }
+
+     #header .container #nav {
+
+         position: static;
+         transform: translateY(0);
+         overflow: hidden;
+         transition: all .5s;
+
+     }
+
+     #header .container #nav.open .depth1 {
+         display: block
+     }
+
+     #header .container #nav .depth1 {
+
+         display: none;
+
+     }
+
+
+
+     #header .container #nav>.depth1>li {
+         display: block;
+         margin: 0 7px;
+         padding: 8px 0;
+     }
+
+
+
+
+ }
+
+
+ @media screen and (max-width: 768px) {
+     #header {
+         padding: 10px 0;
+
+         background-color: #fff;
+         color: #000;
+     }
+
+     #header .container {
+         max-width: 540px;
+         width: 85%;
+     }
+
+
+     #header .container .logo {
+         content: url(../img/logo-black.png);
+     }
+
+     #header .container #nav>.depth1>li {
+         margin: 0;
+
+         line-height: 15px;
+
+         color: rgba(0, 0, 0, 0.6);
+     }
+
+     
+
+   
+ }
