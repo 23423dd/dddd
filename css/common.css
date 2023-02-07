@@ -25,140 +25,78 @@
 
 
 
-
-
-
-.cta-btn {
-    display: inline-block;
-    background-color: #e65f78;
-    padding: 15px 32px;
-    color: #fff;
-    border-radius: 4px;
-    border: none;
-
-
-
-
-    font-size: 14px;
-    font-weight: 700;
-
-    letter-spacing: 0.6px;
-
-
-    text-transform: uppercase;
-    font-family: 'Nunito', sans-serif;
-
-}
-
-
-
-
-
+/* 헤더구역 */
 #header {
-    font-family: 'Montserrat', sans-serif;
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     z-index: 999;
-
     padding: 20px 0;
-
     background-color: transparent;
     color: white;
-
     transition: all 0.5s ease-in-out;
 }
+
+
+
+
+
+#header h1.logo a {
+    display: block;
+    width: 84px;
+    height: 26px;
+    background: url(../img/logo-light.png);
+    background-size: contain;
+}
+
+#header #nav {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+
+
+}
+
+#header #nav .depth1>li {
+    display: inline-block;
+    padding: 0 20px
+}
+
+#header #nav .depth1>li:hover,
+#header #nav .depth1>li.active {
+    color: #e65f78
+}
+
+.hamburger-group {
+    display: none;
+}
+
+
+
 
 /* 스크롤시 #header 스타일 변경 */
 #header.stickyadd {
     padding: 15px 0px;
-
     background-color: #fff !important;
     box-shadow: 0 1px 8px 3px rgb(0 0 0 / 5%);
-
     color: #000;
 }
 
-#header a.logo {
-    display: block;
-    width: 84px;
-    height: 26px;
-    background : url(../img/logo-light.png);
-    background-size: contain;
-
-}
-
-#header.stickyadd a.logo {
-    content: url(../img/logo-black.png);
-}
-
-
-/* hamburger-group, .logo 의 position 기준 */
-#header .container {
-    position: relative;
-}
-
-
-#header .container .logo {
-    line-height: 2;
-    font-size: 20px;
-
-    /* 샘플 페이지에서처럼 header의 height를 80px로 맞춰주기 위해 설정했는데, 맞는 방법인지 모르겠습니다.*/
-}
-
-#header .container .hamburger-group {
-    position: absolute;
-    right: 0;
-    top: 0;
-    display: none;
-}
-
-#header .container .hamburger-group #hamburger-btn {
-    line-height: 1;
-    font-size: 32px;
-
-    border: none;
-    color: inherit;
-    z-index: 2;
+#header.stickyadd h1.logo a {
+    background: url(../img/logo-black.png);
 }
 
 
 
-#header .container #nav {
-
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-}
 
 
-#header .container #nav>.depth1>li {
-    display: inline-block;
 
-    margin: 0 7px;
-    padding: 8px;
-}
 
-#header .container #nav>.depth1>li>a {
-    display: block;
 
-    font-size: 15px;
-    letter-spacing: 0.05em;
-    line-height: 24px;
-    transition: all 0.5s;
 
-    font-weight: 500;
-}
-
-#header .container #nav>.depth1>li:hover>a {
-    color: #e65f78;
-}
-
-#header .container #nav>.depth1>li.active>a {
-    color: #e65f78;
-}
 
 
 
@@ -198,4 +136,28 @@
     padding: 5px;
     color: white;
     display: none;
+}
+
+
+
+.cta-btn {
+    display: inline-block;
+    background-color: #e65f78;
+    padding: 15px 32px;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+
+
+
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 0.6px;
+
+
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+
 }

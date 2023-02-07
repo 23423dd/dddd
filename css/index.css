@@ -1,7 +1,6 @@
 .section {
     padding: 100px 0;
     line-height: 1.5;
-    overflow : hidden;
 
 }
 
@@ -50,13 +49,7 @@
     margin-bottom: 96px;
 }
 
-/* .article_title {
-    font-weight: 600;
-    font-size: 20px;
-    font-family: 'Montserrat', sans-serif;
-    margin: 16px 0;
-}
- */
+
 
 .section .section_content {
     margin-top: 48px;
@@ -72,19 +65,13 @@
 
 .section .section_col {
     float: left;
-
-
     width: calc((100% - 30px*2)/3);
-
     margin-right: 30px;
     margin-bottom: 30px;
-
-
-
 }
 
 
-.section :nth-child(3n) {
+.section .section_col:nth-child(3n) {
     margin-right: 0;
 }
 
@@ -100,7 +87,7 @@
     width: 100vw;
     height: 100vh;
     max-width: 100%;
-    /* 스크롤바 방지 */
+
     position: relative;
     background-color: transparent;
 
@@ -349,7 +336,7 @@
     left: 50%;
     bottom: -16px;
     transform: translateX(-50%);
-    transition:  all .3s;
+    transition: all .3s;
 }
 
 
@@ -384,12 +371,12 @@
 
 #slider .slick-dots li {
     display: inline-block;
-    padding : 0 4px;
+    padding: 0 4px;
 }
 
 #slider .slick-dots li button {
 
-    display:block;
+    display: block;
     text-indent: -999px;
     height: 6px;
     border-radius: 3px;
@@ -403,7 +390,7 @@
     border-radius: 3px;
     background-color: #EFACB9;
 
-   
+
 }
 
 #slider .slick-dots li.slick-active button,
@@ -420,7 +407,6 @@
 #slider .slider_inner {
     width: 100%;
     position: relative;
-    overflow : hidden;
 
 }
 
@@ -504,10 +490,13 @@
     padding: 6px 16px;
 
     border-radius: 30px;
+
+    transition: all .3s;
 }
 
 
-#works .container .tags li button.active {
+#works .container .tags li button.active,
+#works .container .tags li button:hover {
 
     background-color: #e65f78;
 
@@ -532,6 +521,7 @@
     width: calc((100% - 60px) / 3);
 
     border-radius: 5px;
+    overflow: hidden;
 }
 
 #gallery .gallery_item img {
@@ -709,7 +699,7 @@
 
 #contact .container .section_content .mail-form textarea {
     height: 300px;
-} 
+}
 
 
 
@@ -726,6 +716,8 @@
 #contact .container .section_content .privacy label[for="terms"] {
     display: block;
     margin-bottom: 10px;
+
+    float: left;
 }
 
 #contact .container .section_content .privacy {
@@ -736,18 +728,8 @@
 }
 
 #contact .container .section_content .privacy label[for="agree"] {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-
-
+    float: right;
 }
-
-#contact .container .section_content .privacy label[for="agree"] span {
-    vertical-align: middle;
-}
-
 
 
 #contact .container .section_content .privacy #terms {

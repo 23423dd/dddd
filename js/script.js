@@ -1,3 +1,7 @@
+$('.hamburger-group').on('click', function () {
+    $(this).next().stop().slideToggle()
+})
+
 
 function navInit() {
     $(window).on('scroll', function () {
@@ -16,66 +20,35 @@ function navInit() {
 navInit();
 
 
-$('#hamburger-btn ').on('click', function () {
-
-    $('.depth1').stop().slideToggle()
-    $('#nav').toggleClass('open')
 
 
-    return false;
-
-})
-
-
-
-function gallery() {
+function galleryInit() {
 
 
 
     const widthG = document.querySelector('#gallery').getBoundingClientRect().width;
 
-    const getHeigtRow = () => {
+    const getHeigtRow = () => (widthG > 1024) ? (widthG - 60) / 3 * 2 / 3 : (widthG) / 3 * 2;
+    const getHeightG = (n) => {
         if (widthG > 768) {
-            return (widthG - 60) / 3 * 2 / 3;
+            return (n > 3) ? (heightRow * 2 + 30) : heightRow
         } else {
-            return (widthG) / 3 * 2;
-
+            return (heightRow + 30) * n;
         }
-
     }
+    const getPosX = (i) => (widthG > 1024) ? (i % 3) * (widthG - 60) / 3 + (i % 3) * 30 + 'px' : 0;
+    const getPosY = (i) => (widthG > 1024) ? (Math.floor(i / 3) * heightRow + Math.floor(i / 3) * 30 + 'px') : (i * (heightRow + 30) + 'px')
+
 
     const heightRow = getHeigtRow()
 
     const workItems = document.querySelectorAll('.work_item:not(.hide)')
 
-    const getHeightG = (n) => {
-        if (widthG > 768) {
-            if (n > 3) {
-                return heightRow * 2 + 30
-            } else {
-                return heightRow
-            }
-        } else {
-            return (heightRow + 30) * n;
-        }
-    }
-
-    const getPosX = (i) => {
-        if (widthG > 768) {
-            return (i % 3) * (widthG - 60) / 3 + (i % 3) * 30 + 'px';
-        } else {
-            return 0;
-        }
-    }
 
 
-    const getPosY = (i) => {
-        if (widthG > 768) {
-            return Math.floor(i / 3) * heightRow + Math.floor(i / 3) * 30 + 'px';
-        } else {
-            return i * (heightRow + 30) + 'px';
-        }
-    }
+
+
+
 
 
     $('#gallery').height(getHeightG(workItems.length));
@@ -112,20 +85,36 @@ function gallery() {
 }
 
 
-gallery();
+galleryInit();
 
-window.addEventListener('resize', gallery)
-
-
+window.addEventListener('resize', galleryInit)
 
 
 
-let options = { rootMargin: '0px', threshold: .3 }
-let observer = new IntersectionObserver(observerCallback, options);
-function observerCallback(entries, observer) {
-    entries.forEach(entry => { if (entry.isIntersecting) { $(`#nav ul .${entry.target.id}`).addClass('active').siblings().removeClass('active') } });
-};
-document.querySelectorAll('section').forEach((i) => { if (i) { observer.observe(i); } });
+
+function sectionObserverInit () {
+
+    let options = { rootMargin: '0px', threshold: .3 }
+    let observer = new IntersectionObserver(observerCallback, options);
+    function observerCallback(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                $(`#nav ul li`).has(`a[href="#${entry.target.id}"]`).addClass('active').siblings().removeClass('active')
+    
+            }
+        }
+        );
+    };
+    
+    
+    document.querySelectorAll('section').forEach((i) => { if (i) { observer.observe(i); } });
+}
+
+sectionObserverInit()
+
+
+
+
 
 
 
@@ -137,7 +126,6 @@ $(document).on('click', 'a[href^="#"]', function (event) {
         scrollTop: $($.attr(this, 'href')).offset().top
     }, 1200, 'easeInQuint');
 });
-
 
 
 
